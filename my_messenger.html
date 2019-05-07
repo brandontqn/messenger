@@ -1,69 +1,42 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        .conversation_window {
-            float: left;
-            width: 75%;
-            padding: 10px;
-            height: 1000px;
-        }
-
-        /* Create two equal columns that floats next to each other */
-        .conversation_preview {
-            float: left;
-            width: 25%;
-            padding: 10px;
-            height: 1000px; /* Should be removed. Only for demonstration */
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
-
-    <title>My Messenger</title>
+    <link rel="stylesheet" href="StyleSheet1.css">
 </head>
 <body>
 
-<h2>My Messenger</h2>
+    <h2>My Messenger</h2>
+    <p>Click on the names inside the tabbed menu:</p>
 
-<div class="row">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Tyler')">Tyler</button>
+        <button class="tablinks" onclick="openCity(event, 'Sadie')">Sadie</button>
+        <button class="tablinks" onclick="openCity(event, 'Dallas')">Dallas</button>
+    </div>
 
-  <div class="conversation_preview" style="background-color:#aaa;">
-    <h2>Conversations</h2>
-        <ul>
-	    <li>Tyler</li>
-	    <li>Sadie</li>
-	    <li>Dallas</li>
-	    <li>Lucas</li>
-     	</ul>
-  </div>
+    <div id="Tyler" class="tabcontent">
+        <h3>Conversation1</h3>
+        <ul id="messages"></ul>
+        <input id="textbox" typeof="text">
+        <button id="button">Send</button>
+    </div>
 
-  <div class="conversation_window" style="background-color:#bbb;">
-    <h2>Some conversation</h2>
-    <ul id="messages">
-        
-    </ul>
-    
-    <input id="textbox" typeof="text">
-    <button id="button">Send</button>
-  </div>
+    <div id="Sadie" class="tabcontent">
+        <h3>Conversation2</h3>
+        <ul id="messages"></ul>
+        <input id="textbox" typeof="text">
+        <button id="button">Send</button>
+    </div>
 
-</div>
+    <div id="Dallas" class="tabcontent">
+        <h3>Conversation3</h3>
+        <ul id="messages"></ul>
+        <input id="textbox" typeof="text">
+        <button id="button">Send</button>
+    </div>
 
-<script src="Script1.js"></script>
+    <script src="Script1.js"></script>
 
 </body>
 </html>
