@@ -21,3 +21,13 @@ function openConversation(evt, conversationName) {
     document.getElementById(conversationName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+$(document).ready(function(){
+    $("#button1").click(function(){
+        $("#messages1").append(
+            $("<li>").append(
+                $("#textbox1").val()
+            )
+        );
+    });
+});

@@ -3,9 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="StyleSheet1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="Script1.js"></script>
 </head>
 <body>
-
     <h2>My Messenger</h2>
     <p>Click on the names inside the tabbed menu:</p>
 
@@ -19,7 +20,7 @@
         <h3>Conversation1</h3>
         <ul id="messages1"></ul>
         <input id="textbox1" typeof="text">
-        <button onclick="sendMessage('textbox1', 'messages1')">Send</button>
+        <button id="button1">Send</button>
     </div>
 
     <div id="Sadie" class="tabcontent">
@@ -35,8 +36,5 @@
         <input id="textbox3" typeof="text">
         <button onclick="sendMessage('textbox3', 'messages3')">Send</button>
     </div>
-
-    <script src="Script1.js"></script>
-
 </body>
 </html>
