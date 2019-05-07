@@ -10,30 +10,30 @@
     <p>Click on the names inside the tabbed menu:</p>
 
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Tyler')">Tyler</button>
-        <button class="tablinks" onclick="openCity(event, 'Sadie')">Sadie</button>
-        <button class="tablinks" onclick="openCity(event, 'Dallas')">Dallas</button>
+        <button class="tablinks" onclick="openConversation(event, 'Tyler')">Tyler</button>
+        <button class="tablinks" onclick="openConversation(event, 'Sadie')">Sadie</button>
+        <button class="tablinks" onclick="openConversation(event, 'Dallas')">Dallas</button>
     </div>
 
     <div id="Tyler" class="tabcontent">
         <h3>Conversation1</h3>
-        <ul id="messages"></ul>
-        <input id="textbox" typeof="text">
-        <button id="button">Send</button>
+        <ul id="messages1"></ul>
+        <input id="textbox1" typeof="text">
+        <button onclick="sendMessage('textbox1', 'messages1')">Send</button>
     </div>
 
     <div id="Sadie" class="tabcontent">
         <h3>Conversation2</h3>
-        <ul id="messages"></ul>
-        <input id="textbox" typeof="text">
-        <button id="button">Send</button>
+        <ul id="messages2"></ul>
+        <input id="textbox2" typeof="text">
+        <button onclick="sendMessage('textbox2', 'messages2')">Send</button>
     </div>
 
     <div id="Dallas" class="tabcontent">
         <h3>Conversation3</h3>
-        <ul id="messages"></ul>
-        <input id="textbox" typeof="text">
-        <button id="button">Send</button>
+        <ul id="messages3"></ul>
+        <input id="textbox3" typeof="text">
+        <button onclick="sendMessage('textbox3', 'messages3')">Send</button>
     </div>
 
     <script src="Script1.js"></script>
