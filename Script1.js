@@ -22,12 +22,35 @@ function openConversation(evt, conversationName) {
     evt.currentTarget.className += " active";
 }
 
-$(document).ready(function(){
+jQuery(function(){
     $("#button1").click(function(){
         $("#messages1").append(
             $("<li>").append(
                 $("#textbox1").val()
             )
         );
+        $("#textbox1").val("");
+    });
+});
+
+jQuery(function(){
+    $("#button2").click(function(){
+        $("#messages2").append(
+            $("<li>").append(
+                $("#textbox2").val()
+            )
+        );
+        $("#textbox2").val("");
+    });
+});
+
+jQuery(function(){
+    $("#button3").click(function(){
+        $("#messages3").append(
+            $("<li>").append(
+                $("#textbox3").val()
+            )
+        );
+        $("#textbox3").val("");
     });
 });
