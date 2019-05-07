@@ -54,3 +54,10 @@ jQuery(function(){
         $("#textbox3").val("");
     });
 });
+
+jQuery(function(){
+    $("#button4").click(function(){
+        $("#messages1").empty();
+        $("#textbox3").val("");
+    });
+});
