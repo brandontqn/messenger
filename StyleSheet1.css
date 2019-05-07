@@ -40,7 +40,7 @@ body {
         }
 
 /* Style the tab content */
-.tabcontent {
+.conversation {
     float: left;
     display: none;
     padding: 0px 12px;
