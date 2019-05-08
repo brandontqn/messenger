@@ -27,6 +27,7 @@
 // a jQuery function to handle all three name tab-link buttons...
 var active_tab;
 var most_recent_message;
+var id_tracker = 3;
 
 jQuery(function(){
     $(".name_button").click(function(){
@@ -47,31 +48,34 @@ jQuery(function(){
     });
 });
 
+// add new conversation
+jQuery(function () {
+    $("#new_conversation_button").click(function () {
+        id_tracker++;
+        $(".tab").append("<button class='name_button' data-id=" + id_tracker + ">" + $("#new_name").val() + "</button>")
+
+    });
+});
+
 // a jQuery function to handle all three SEND buttons...
 jQuery(function(){
     $(".send_button").click(function(){
         //var thisID = $(this).attr("data-id");
         if (active_tab == 1) {
             most_recent_message = $("#input1").val();
-            $("#inbox1").append(
-                $("<li id='me'>").append( most_recent_message)
-            );
+            $("#inbox1").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input1").val("");
             chat_bot();
         }
         else if (active_tab == 2) {
             most_recent_message = $("#input2").val();
-            $("#inbox2").append(
-                $("<li id='me'>").append(most_recent_message)
-            );
+            $("#inbox2").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input2").val("");
             chat_bot();
         }
         else if (active_tab == 3) {
             most_recent_message = $("#input3").val();
-            $("#inbox3").append(
-                $("<li id='me'>").append(most_recent_message)
-            );
+            $("#inbox3").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input3").val("");
             chat_bot();
         }
@@ -84,25 +88,19 @@ $(document).keypress(function (e) {
     if (keycode == "13") {
         if (active_tab == 1) {
             most_recent_message = $("#input1").val();
-            $("#inbox1").append(
-                $("<li id='me'>").append(most_recent_message)
-            );
+            $("#inbox1").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input1").val("");
             chat_bot();
         }
         else if (active_tab == 2) {
             most_recent_message = $("#input2").val();
-            $("#inbox2").append(
-                $("<li id='me'>").append(most_recent_message)
-            );
+            $("#inbox2").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input2").val("");
             chat_bot();
         }
         else if (active_tab == 3) {
             most_recent_message = $("#input3").val();
-            $("#inbox3").append(
-                $("<li id='me'>").append(most_recent_message)
-            );
+            $("#inbox3").append("<li id='me'>" + most_recent_message + "</li>");
             $("#input3").val("");
             chat_bot();
         }
@@ -128,104 +126,79 @@ jQuery(function(){
 function chat_bot() {
     if (most_recent_message == "Hi" || most_recent_message == "hi") {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("Hello!")
-            );
+            $("#inbox1").append("<li id='bot'>Hello!</li>");
         }
         else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("Hello!")
-            );
+            $("#inbox2").append("<li id='bot'>Hello!</li>");
         }
         else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("Hello!")
-            );
+            $("#inbox3").append("<li id='bot'>Hello!</li>");
+        }
+    }
+    else if (most_recent_message == "Hello" || most_recent_message == "hello") {
+        if (active_tab == 1) {
+            $("#inbox1").append("<li id='bot'>Hi!</li>");
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append("<li id='bot'>Hi!</li>");
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append("<li id='bot'>Hi!</li>");
         }
     }
     else if (most_recent_message == "How are you?" || most_recent_message == "how are you?" || most_recent_message == "How are you" || most_recent_message == "how are you") {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("I'm excellent!! How are you?")
-            );
-        }
-        else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("I'm excellent!! How are you?")
-            );
-        }
-        else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("I'm excellent!! How are you?")
-            );
+            $("#inbox1").append("<li id='bot'>I'm excellent!! How are you?</li>");
+        }                                     
+        else if (active_tab == 2) {           
+            $("#inbox2").append("<li id='bot'>I'm excellent!! How are you?</li>");
+        }                                     
+        else if (active_tab == 3) {           
+            $("#inbox3").append("<li id='bot'>I'm excellent!! How are you?</li>");
         }
     }
     else if (most_recent_message == "Fine" || most_recent_message == "fine") {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("Fine and dandy!")
-            );
+            $("#inbox1").append("<li id='bot'>Fine and dandy!</li>");
         }
         else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("Fine and dandy!")
-            );
+            $("#inbox2").append("<li id='bot'>Fine and dandy!</li>");
         }
         else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("Fine and dandy!")
-            );
+            $("#inbox3").append("<li id='bot'>Fine and dandy!</li>");
         }
     }
     else if (most_recent_message == "Great" || most_recent_message == "great") {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("That's great m8!")
-            );
+            $("#inbox1").append("<li id='bot'>That's great m8!</li>");
         }
         else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("That's great m8!")
-            );
+            $("#inbox2").append("<li id='bot'>That's great m8!</li>");
         }
         else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("That's great m8!")
-            );
+            $("#inbox3").append("<li id='bot'>That's great m8!</li>");
         }
     }
     else if (most_recent_message == "Excellent" || most_recent_message == "excellent") {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("Eggcellentttttt!")
-            );
+            $("#inbox1").append("<li id='bot'>Eggcellentttttt!</li>");
         }
         else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("Eggcellentttttt!")
-            );
+            $("#inbox2").append("<li id='bot'>Eggcellentttttt!</li>");
         }
         else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("Eggcellentttttt!")
-            );
+            $("#inbox3").append("<li id='bot'>Eggcellentttttt!</li>");
         }
     }
     else {
         if (active_tab == 1) {
-            $("#inbox1").append(
-                $("<li id='bot'>").append("Sorry, I do not understand!")
-            );
+            $("#inbox1").append("<li id='bot'>Sorry, I do not understand!</li>");
         }
         else if (active_tab == 2) {
-            $("#inbox2").append(
-                $("<li id='bot'>").append("Sorry, I do not understand!")
-            );
+            $("#inbox2").append("<li id='bot'>Sorry, I do not understand!</li>");
         }
         else if (active_tab == 3) {
-            $("#inbox3").append(
-                $("<li id='bot'>").append("Sorry, I do not understand!")
-            );
+            $("#inbox3").append("<li id='bot'>Sorry, I do not understand!</li>");
         }
     }
 }
