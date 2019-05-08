@@ -52,8 +52,10 @@ body {
 
 #me {
     text-align: right;
+    list-style: none;
 }
 
 #bot {
     text-align: left;
+    list-style: none;
 }

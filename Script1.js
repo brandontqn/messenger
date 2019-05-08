@@ -143,6 +143,74 @@ function chat_bot() {
             );
         }
     }
+    else if (most_recent_message == "How are you?" || most_recent_message == "how are you?" || most_recent_message == "How are you" || most_recent_message == "how are you") {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("I'm excellent!! How are you?")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("I'm excellent!! How are you?")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("I'm excellent!! How are you?")
+            );
+        }
+    }
+    else if (most_recent_message == "Fine" || most_recent_message == "fine") {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("Fine and dandy!")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("Fine and dandy!")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("Fine and dandy!")
+            );
+        }
+    }
+    else if (most_recent_message == "Great" || most_recent_message == "great") {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("That's great m8!")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("That's great m8!")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("That's great m8!")
+            );
+        }
+    }
+    else if (most_recent_message == "Excellent" || most_recent_message == "excellent") {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("Eggcellentttttt!")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("Eggcellentttttt!")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("Eggcellentttttt!")
+            );
+        }
+    }
     else {
         if (active_tab == 1) {
             $("#inbox1").append(
