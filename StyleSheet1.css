@@ -49,3 +49,11 @@ body {
     width: 70%;
     height: 300px;
 }
+
+#me {
+    text-align: right;
+}
+
+#bot {
+    text-align: left;
+}

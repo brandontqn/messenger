@@ -25,18 +25,24 @@
 // }
 
 // a jQuery function to handle all three name tab-link buttons...
+var active_tab;
+var most_recent_message;
+
 jQuery(function(){
     $(".name_button").click(function(){
         $(".conversation").hide();
         var thisID = $(this).attr("data-id");
         if(thisID == 1){
             $('.conversation[data-id="1"]').show();
+            active_tab = 1;
         }
         else if(thisID == 2){
             $('.conversation[data-id="2"]').show();
+            active_tab = 2;
         }
         else if(thisID == 3){
             $('.conversation[data-id="3"]').show();
+            active_tab = 3;
         }
     });
 });
@@ -44,46 +50,114 @@ jQuery(function(){
 // a jQuery function to handle all three SEND buttons...
 jQuery(function(){
     $(".send_button").click(function(){
-        var thisID = $(this).attr("data-id");
-        if(thisID == 1){
-            $("#messages1").append(
-                $("<li>").append(
-                    $("#textbox1").val()
-                )
+        //var thisID = $(this).attr("data-id");
+        if (active_tab == 1) {
+            most_recent_message = $("#input1").val();
+            $("#inbox1").append(
+                $("<li id='me'>").append( most_recent_message)
             );
-            $("#textbox1").val("");
+            $("#input1").val("");
+            chat_bot();
         }
-        else if(thisID == 2){
-            $("#messages2").append(
-                $("<li>").append(
-                    $("#textbox2").val()
-                )
+        else if (active_tab == 2) {
+            most_recent_message = $("#input2").val();
+            $("#inbox2").append(
+                $("<li id='me'>").append(most_recent_message)
             );
-            $("#textbox2").val("");
+            $("#input2").val("");
+            chat_bot();
         }
-        else if(thisID == 3){
-            $("#messages3").append(
-                $("<li>").append(
-                    $("#textbox3").val()
-                )
+        else if (active_tab == 3) {
+            most_recent_message = $("#input3").val();
+            $("#inbox3").append(
+                $("<li id='me'>").append(most_recent_message)
             );
-            $("#textbox3").val("");
+            $("#input3").val("");
+            chat_bot();
         }
     });
 });
 
+// append message to inbox on Enter key press
+$(document).keypress(function (e) {
+    var keycode = (e.keycode || e.which);
+    if (keycode == "13") {
+        if (active_tab == 1) {
+            most_recent_message = $("#input1").val();
+            $("#inbox1").append(
+                $("<li id='me'>").append(most_recent_message)
+            );
+            $("#input1").val("");
+            chat_bot();
+        }
+        else if (active_tab == 2) {
+            most_recent_message = $("#input2").val();
+            $("#inbox2").append(
+                $("<li id='me'>").append(most_recent_message)
+            );
+            $("#input2").val("");
+            chat_bot();
+        }
+        else if (active_tab == 3) {
+            most_recent_message = $("#input3").val();
+            $("#inbox3").append(
+                $("<li id='me'>").append(most_recent_message)
+            );
+            $("#input3").val("");
+            chat_bot();
+        }
+    }
+});
+
 // a jQuery function to handle all three CLEAR buttons...
 jQuery(function(){
-    $(".clear_button").click(function(){
-        var thisID = $(this).attr("data-id");
-        if(thisID == 1){
-            $("#messages1").empty();
+    $(".clear_button").click(function () {
+        if (active_tab == 1) {
+            $("#inbox1").empty();
         }
-        else if(thisID == 2){
-            $("#messages2").empty();
+        else if (active_tab == 2){
+            $("#inbox2").empty();
         }
-        else if(thisID == 3){
-            $("#messages3").empty();
+        else if (active_tab == 3){
+            $("#inbox3").empty();
         }
     });
 });
+
+// create some automatic responses
+function chat_bot() {
+    if (most_recent_message == "Hi" || most_recent_message == "hi") {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("Hello!")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("Hello!")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("Hello!")
+            );
+        }
+    }
+    else {
+        if (active_tab == 1) {
+            $("#inbox1").append(
+                $("<li id='bot'>").append("Sorry, I do not understand!")
+            );
+        }
+        else if (active_tab == 2) {
+            $("#inbox2").append(
+                $("<li id='bot'>").append("Sorry, I do not understand!")
+            );
+        }
+        else if (active_tab == 3) {
+            $("#inbox3").append(
+                $("<li id='bot'>").append("Sorry, I do not understand!")
+            );
+        }
+    }
+}
