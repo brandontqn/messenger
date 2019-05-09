@@ -27,50 +27,57 @@
 // a jQuery function to handle all three name tab-link buttons...
 
 //var most_recent_message;
-//var id_tracker = 3;
 
 const enter_key = "13";
+var id_tracker = 3;
 var this_id;
-//class Messages {
-//    constructor() {
-//        this.inbox = "<ul>My Inbox</ul>";
-//        this.send_button = "<button>Send Button</button>";
-//        this.clear_button = "<button>Clear Button</button>";
-//    }
-//}
 
-//class Conversation/* extends Messages*/ {
-//    constructor(id, name) {
-//        this.id = id;
-//        this.name = name;
-//        //this.messages = new Messages();
-//        this.return_name = function () {
-//            return this.name
-//        }
-//    }
-//}
+class Messages {
+    constructor() {
+        this.inbox = "<ul>My Inbox</ul>";
+        this.input_box = "<input typeof='text'>";
+        this.send_button = "<button>Send Button</button>";
+        this.clear_button = "<button>Clear Button</button>";
 
-//var my_convo = new Conversation(4, "demo_name");
-//document.getElementById("demo").innerHTML = "Paragraph changed!";
-//$("#demo").html("example test text");
-//$("#title").html("title");
+        this.example_title = "title";
+    }
+}
 
-
-//$("#title").html("title");
+class Conversation extends Messages {
+    constructor(id, name) {
+        super();
+        this.id = id;
+        console.log("new id = " + this.id);
+        this.name = name;
+        this.tab_link = "<button class='name_button' data-id=" + this.id + ">" + this.name + "</button>";
+        this.content = "<div class='conversation' data-id='" + this.id + "'>some bs...</div>";
+        this.header = "<h3>Conversation " + this.id + "</h3>";
+    }
+}
 
 jQuery(function(){
     $(".name_button").click(function () {
-        this_id = $(this).attr("data-id");
+        this_id = $(this).attr("data-id"); // this does not find the data-id nor class of the new conversation
+        console.log("this_id = " + this_id);
         $(".conversation").hide();
-        $('.conversation[data-id="' + this_id + '"]').show();
+        $(".conversation[data-id='" + this_id + "']").show();
+        if (this_id == 4) {
+            console.log("WOWZERS");
+        }
     });
 });
 
 // add new conversation
 jQuery(function () {
     $("#new_conversation_button").click(function () {
-        id_tracker++;
-        $(".tab").append("<button class='name_button' data-id=" + id_tracker + ">" + $("#new_name").val() + "</button>")
+        var newName = $("#new_name").val();
+        var newConversation = new Conversation(++id_tracker, newName);
+
+        $("#title").html(newConversation.example_title);
+
+        $(".tab").append(newConversation.tab_link);
+        $("body").append(newConversation.content);
+        //$(".conversation[data-id='" + newConversation.id + "']").html("some bs");//newConversation.header);
     });
 });
 
