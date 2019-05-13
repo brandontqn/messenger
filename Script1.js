@@ -36,8 +36,8 @@ class Messages {
     constructor(id) {
         this.inbox = "<ul class='messages' id='inbox" + id + "'></ul>";
         this.input_box = "<input class='chat_box' id='input" + id + "' typeof='text'>";
-        this.send_button = "<button class='send_button' data-id=" + id + ">Send Button</button>";
-        this.clear_button = "<button class='clear_button' data-id=" + id + ">Clear Button</button>";
+        //this.send_button = "<button class='send_button' data-id=" + id + ">Send</button>";
+        this.clear_button = "<button class='clear_button' data-id=" + id + ">Clear Conversation</button>";
     }
 }
 
@@ -45,7 +45,7 @@ class Conversation extends Messages {
     constructor(id, name) {
         super(id);
         this.id = id;
-        console.log("new id = " + this.id);
+        //console.log("new id = " + this.id);
         this.name = name;
         this.tab_link = "<button class='name_button' data-id=" + this.id + ">" + this.name + "</button>";
         this.content = "<div class='conversation' data-id=" + this.id + "></div>";
@@ -53,21 +53,22 @@ class Conversation extends Messages {
     }
 }
 
-//jQuery(function () {
-//    switch_to();
-//});
-
-document.addEventListener("click", function () {
-    switch_to();
-});
-
-function switch_to () {
+jQuery(function () {
     $(".name_button").click(function () {
         this_id = $(this).attr("data-id");
         $(".conversation").hide();
         $(".conversation[data-id=" + this_id + "]").show();
     });
-} 
+});
+
+document.addEventListener("click", function () {
+    $(".name_button").click(function () {
+        this_id = $(this).attr("data-id");
+        $(".conversation").hide();
+        $(".conversation[data-id=" + this_id + "]").show();
+    });
+});
+
 
 // add new conversation
 jQuery(function () {
@@ -81,7 +82,7 @@ jQuery(function () {
         $(".conversation[data-id=" + newConversation.id + "]").append(newConversation.header);
         $(".conversation[data-id=" + newConversation.id + "]").append(newConversation.inbox);
         $(".conversation[data-id=" + newConversation.id + "]").append(newConversation.input_box);
-        $(".conversation[data-id=" + newConversation.id + "]").append(newConversation.send_button);
+        //$(".conversation[data-id=" + newConversation.id + "]").append(newConversation.send_button);
         $(".conversation[data-id=" + newConversation.id + "]").append(newConversation.clear_button);
         $("#new_name").val("");
     });
